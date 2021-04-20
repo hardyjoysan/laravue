@@ -1,11 +1,19 @@
 <template>
     <div class="homepage">
-        <h1>Home Page</h1>
+        <h1>{{count}}</h1>
+        <button @click="$store.commit('INCREMENT')">+</button>
     </div>
 </template>
 
 <script>
+import { mapState } from 'vuex';
+
 export default {
-    name: 'home'
+    name: 'home',
+    computed: {
+        ...mapState({
+            count: state => state.count
+        })
+    }
 }
 </script>
